@@ -12,6 +12,7 @@ const images=[
 
 const Carousel = () => {
   const [imgIndex, setImgIndex] = useState(0);
+  const [openmodal, setOpenmodal]=useState(false)
   const imageIndex=useSelector(state=>state.imageIndex)
   const dispatch=useDispatch()
 
@@ -22,7 +23,9 @@ const Carousel = () => {
   const prevSlide = () => {
     setImgIndex((prevIndex)=>(prevIndex===0?images.length-1:prevIndex-1));
   };
-
+  const handleModal=()=>{
+    setOpenmodal(!openmodal)
+  }
   useEffect(()=>{
     dispatch(cartSlice.actions.changeImgIndex(imgIndex))
     setImgIndex(imageIndex)
@@ -31,7 +34,7 @@ const Carousel = () => {
     <>
     <div className='carousel'>
       <img className='btn-slide' onClick={prevSlide} src="./src/assets/arrow-left.svg" alt="Prev" />
-      <img className='slide' src={images[imgIndex]}/>
+      <img onClick={handleModal} className='slide' src={images[imgIndex]}/>
       <img id='next' className='btn-slide' onClick={nextSlide} src="./src/assets/arrow-right.svg" alt="Next" />
       <div className="scroll ">
         {images.map(src=>(
@@ -39,7 +42,14 @@ const Carousel = () => {
         ))}
       </div>
     </div>
-    
+    <div className={`modalcarousel ${openmodal?"":"hidden"}`}>
+      <img onClick={handleModal} className='modal-close' src="./src/assets/close-modal.svg" alt="Close" />
+      <div>
+        <img className='modal-btn-slide' onClick={prevSlide} src="./src/assets/arrow-left.svg" alt="Prev" />
+        <img className='modal-slide' src={images[imgIndex]}/>
+        <img id='next' className='modal-btn-slide' onClick={nextSlide} src="./src/assets/arrow-right.svg" alt="Next" />
+      </div>
+    </div>
     </>
   );
 };

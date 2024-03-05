@@ -13,7 +13,7 @@ body{
   flex-direction: column;
   align-items: center;
   font-size: 62.5%;
-  background-color: rgb(255, 214, 252);
+  background-color: var(--white);
 }
 #root{
   width: 37.5rem;
@@ -79,6 +79,72 @@ header{
   font-size: 1rem;
   font-weight: 700;
   line-height: normal;
+}
+.carts-modal{
+  width: 31.2rem;
+  padding: 0rem 2.4rem 3.2rem 2.4rem;
+  border-radius: 1rem;
+  position: absolute;
+  background: var(--white);
+  box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.50);
+  margin-left: -27.5rem;
+  margin-top: 33rem;
+  z-index: 1;
+  border: 1px solid black;
+}
+.carts-modal h6{
+  color: var(--primary-black);
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 2rem 0px;
+  margin: 0px;
+  border-bottom: 1px solid #E4E9F2;
+}
+.carts-modal .info{
+  display: flex;
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+}
+.proimg{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.4rem;
+}
+.proname,
+.proprice{
+  color: var(--color-gray);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  margin: 0px;
+}
+.proprice span{
+  color: var(--primary-black);
+  font-weight: 700;
+}
+.delete{
+  cursor: pointer;
+}
+.checkout{
+  width: 100%;
+  height: 5.6rem;
+  margin-top: 2.2rem;
+  border: none;
+  border-radius: 1rem;
+  background: var(--primary-orange);
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+.empty{
+  color: var(--color-gray);
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.6rem;
+  padding: 4rem 0px;
 }
 .profilepic{
   cursor: pointer;
@@ -344,6 +410,29 @@ header{
   }
   .carousel{
     flex-direction: column;
+  }
+  .modalcarousel{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 111;
+
+  }
+  .hidden{
+    display: none;
+  }
+  .modal-close{
+    width: 2rem;
+  }
+  .modal-slide{
+    width: 55rem;
+    height: 55rem;
+    border-radius: 15px;
+    margin-left: 24rem;
+    margin-top: -8rem;
+  }
+  .modal-btn-slide{
+    margin-top: -10rem;
   }
 }
 

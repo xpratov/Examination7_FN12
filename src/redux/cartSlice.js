@@ -5,6 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice=createSlice({
     name: "cartSlice",
     initialState: {
+        name: "Fall Limited Edition Sneakers",
         price: 125,
         count: 1,
         totalPrice: 125,
